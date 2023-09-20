@@ -40,6 +40,11 @@ function onFormSubmit(event) {
         message, 
     }
 
+if (email === '' || message === '') {
+        alert('Write down all fields!');
+        return;
+    }
+
     console.log(formData);
     form.reset();
     localStorage.removeItem(localStorageKey);

@@ -13,14 +13,12 @@ function onTimeUpdate(data) {
 }
 
 const savedTime = localStorage.getItem(localStorageKey); 
+const parsedSavedTime = JSON.parse(savedTime);
+
 let seconds = 0; 
-try {
-    const parsedSavedTime = JSON.parse(savedTime);
-    seconds = parsedSavedTime.seconds; 
-  
-} catch (error) {
-    console.log(error.name);
-    console.log(error.message); 
-}
+if (parsedSavedTime) {
+    seconds = parsedSavedTime.seconds;
+} 
+
 player.setCurrentTime(seconds);
 
